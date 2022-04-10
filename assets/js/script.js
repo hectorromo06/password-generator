@@ -5,6 +5,18 @@ var lowercase = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m"
 var specialChar = ["!", "@", "#", "$", "%", "^", "&", "*", "(", ")", "+", "-", ".", "`", "~", "|", "<", ">", "=", "_"];
 var numeric = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9"];
 
+// Prompts user for password criteria
+function passwordOptions () {
+  // Prompts user for password length
+  var length = parseInt(prompt("How long should the password be?"));
+
+  // Validates password is between 8 and 128 characters
+  if (length < 8 || length > 128) {
+    alert("Length must be between 8 and 128 characters long");
+    return null;
+  }
+}
+
 // Get references to the #generate element
 var generateBtn = document.querySelector("#generate");
 
