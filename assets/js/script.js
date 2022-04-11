@@ -61,6 +61,15 @@ function generatePassword() {
   if (choices.numericConfirmed) {
     possible = possible.concat(numeric);
   }
+
+  // Selects random characters from the possible characters array to be pushed onto empty array for final password
+  for (var i = 0; i < choices.length; i++) {
+    var pickPossible = possible[Math.floor(Math.random() * possible.length)];
+    final.push(pickPossible);
+  }
+
+  // Returns a single string for the password from the final array
+  return final.join('');
 }
 
 // Get references to the #generate element
