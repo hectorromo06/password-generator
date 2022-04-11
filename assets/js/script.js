@@ -41,6 +41,28 @@ function passwordOptions () {
   }
 }
 
+// Generates password
+function generatePassword() {
+  // Create two empty arrays and a vaiable for the object created in passwordOptions function
+  var final = [];
+  var possible = [];
+  var choices = passwordOptions();
+
+  // Creates possible characters array
+  if (choices.upperConfirmed) {
+    possible = possible.concat(uppercase);
+  }
+  if (choices.lowerConfirmed) {
+    possible = possible.concat(lowercase);
+  }
+  if (choices.specialConfirmed) {
+    possible = possible.concat(specialChar);
+  }
+  if (choices.numericConfirmed) {
+    possible = possible.concat(numeric);
+  }
+}
+
 // Get references to the #generate element
 var generateBtn = document.querySelector("#generate");
 
