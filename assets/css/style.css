@@ -28,6 +28,8 @@ header {
   padding: 20px;
   padding-top: 0px;
   color: hsl(206, 17%, 28%);
+  animation: rubberBand;
+  animation-duration: 3s;
 }
 
 .card {
@@ -86,6 +88,8 @@ header {
   padding: 14px 34px;
   text-align: center;
   cursor: pointer;
+  animation: rubberBand;
+  animation-duration: 3s;
 }
 
 button[disabled] {

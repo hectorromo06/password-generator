@@ -8,36 +8,41 @@ var numeric = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9"];
 // Prompts user for password criteria
 function passwordOptions () {
   // Prompts user for password length
-  var length = parseInt(prompt("How long should the password be?"));
-
-  // Validates password is between 8 and 128 characters
-  if (length < 8 || length > 128) {
-    alert("Length must be between 8 and 128 characters long");
-    return null;
-  }
-
-  // Prompts for user for password criteria
-  var upperConfirmed = confirm("Do you want your password to include uppercase characters?");
-  var lowerConfirmed = confirm("Do you want your password to include lowercase characters?");
-  var specialConfirmed = confirm("Do you want your password to include special characters?");
-  var numericConfirmed = confirm("Do you want your password to include numeric characters?");
-
-  // Validates that one of the criteria was selected
-
-  // If none were selected lets user know to please select one criteria
-  // Else creates the object with the boolean confirmations and length
-  if (upperConfirmed !== true && lowerConfirmed !== true && specialConfirmed !== true && numericConfirmed !== true ) {
-    alert("Please select at least one criteria for password");
-    return null;
+  var prom = prompt("How long should the password be?");
+  if (prom === null) {
+    return;
   } else {
-    var passwordOptionsObj = {
-      length: length,
-      upperConfirmed: upperConfirmed,
-      lowerConfirmed: lowerConfirmed,
-      specialConfirmed: specialConfirmed,
-      numericConfirmed: numericConfirmed
-    };
-    return passwordOptionsObj;
+    var length = parseInt(prom);
+  
+    // Validates password is between 8 and 128 characters
+    if (length < 8 || length > 128) {
+      alert("Length must be between 8 and 128 characters long");
+      return null;
+    }
+  
+    // Prompts for user for password criteria
+    var upperConfirmed = confirm("Do you want your password to include uppercase characters?");
+    var lowerConfirmed = confirm("Do you want your password to include lowercase characters?");
+    var specialConfirmed = confirm("Do you want your password to include special characters?");
+    var numericConfirmed = confirm("Do you want your password to include numeric characters?");
+  
+    // Validates that one of the criteria was selected
+  
+    // If none were selected lets user know to please select one criteria
+    // Else creates the object with the boolean confirmations and length
+    if (upperConfirmed !== true && lowerConfirmed !== true && specialConfirmed !== true && numericConfirmed !== true ) {
+      alert("Please select at least one criteria for password");
+      return null;
+    } else {
+      var passwordOptionsObj = {
+        length: length,
+        upperConfirmed: upperConfirmed,
+        lowerConfirmed: lowerConfirmed,
+        specialConfirmed: specialConfirmed,
+        numericConfirmed: numericConfirmed
+      };
+      return passwordOptionsObj;
+    }
   }
 }
 
